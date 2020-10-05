@@ -1,0 +1,23 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = __importDefault(require("express"));
+var cors_1 = __importDefault(require("cors"));
+var userDispatcher_1 = __importDefault(require("./userDispatcher"));
+var hotelDispatcher_1 = __importDefault(require("./hotelDispatcher"));
+var roomDispatcher_1 = __importDefault(require("./roomDispatcher"));
+var bookingDispatcher_1 = __importDefault(require("./bookingDispatcher"));
+var userDispatcherNew_1 = __importDefault(require("./userDispatcherNew"));
+var morgan_1 = __importDefault(require("morgan"));
+var mainDispatcher = express_1.default.Router();
+mainDispatcher.use(cors_1.default());
+mainDispatcher.use(morgan_1.default("dev"));
+mainDispatcher.use(express_1.default.json());
+mainDispatcher.use("/api/v1/user", userDispatcher_1.default);
+mainDispatcher.use("/api/v1/hotel", hotelDispatcher_1.default);
+mainDispatcher.use("/api/v1/room", roomDispatcher_1.default);
+mainDispatcher.use("/api/v1/booking", bookingDispatcher_1.default);
+mainDispatcher.use("/api/v1/users", userDispatcherNew_1.default);
+exports.default = mainDispatcher;
