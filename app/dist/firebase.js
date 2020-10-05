@@ -19,12 +19,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var firebase = __importStar(require("firebase/app"));
+const firebase = __importStar(require("firebase/app"));
 require("firebase/auth");
 require("firebase/firestore");
 require("firebase/database");
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-var firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyCJWnokaZtAnhfIAe-o-r4Nz_tSiCGc9Jk",
     authDomain: "mango-hotel-reservation-834a5.firebaseapp.com",
     databaseURL: "https://mango-hotel-reservation-834a5.firebaseio.com",

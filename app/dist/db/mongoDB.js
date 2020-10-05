@@ -4,11 +4,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.dbConnection = void 0;
-var mongoose_1 = __importDefault(require("mongoose"));
-var dbConnection = function () {
+const mongoose_1 = __importDefault(require("mongoose"));
+const dbConnection = () => {
     mongoose_1.default.connect('mongodb://localhost:27017/testdb', { useNewUrlParser: true, useUnifiedTopology: true });
-    var db = mongoose_1.default.connection;
-    db.on('error', function (err) { return console.info('error :', err); });
-    db.once('open', function () { return console.info("db connection established"); });
+    const db = mongoose_1.default.connection;
+    db.on('error', err => console.info('error :', err));
+    db.once('open', () => console.info("db connection established"));
 };
 exports.dbConnection = dbConnection;
