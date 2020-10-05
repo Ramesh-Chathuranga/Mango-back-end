@@ -4,15 +4,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-//import HotelRepository from "../repository/hotelRepository";
+const hotelRepository_1 = __importDefault(require("../repository/hotelRepository"));
 const bookingRepository_1 = __importDefault(require("../repository/bookingRepository"));
 const hotelDispatcher = express_1.default.Router();
 hotelDispatcher
     .route("")
     .get(async (req, res) => {
     try {
-        // const data = await HotelRepository.getHotelList();
-        res.status(200).json("data");
+        const data = await hotelRepository_1.default.getHotelList();
+        res.status(200).json(data);
     }
     catch (error) {
         res.status(500).send(error);
@@ -32,8 +32,8 @@ hotelDispatcher
     .get(async (req, res) => {
     try {
         const id = req.params.id;
-        //const data = await HotelRepository.getHotel(id);
-        res.status(200).json("data");
+        const data = await hotelRepository_1.default.getHotel(id);
+        res.status(200).json(data);
     }
     catch (error) {
         res.status(500).send(error);
