@@ -1,14 +1,13 @@
-import Repository from "./Repository";
+// import Repository from "./Repository";
 
+// class HotelRepository extends Repository{
+//   getHotel = async(id:any)=>{
+//      return await this.getData(id);
+//   }
 
-class HotelRepository extends Repository{
-  getHotel = async(id:any)=>{
-     return await this.getData(id);
-  }
+//   getHotelList = async()=>{
+//     return await this.getAll();
+//   }
+// }
 
-  getHotelList = async()=>{
-    return await this.getAll();
-  }
-}
-
-export default new HotelRepository('hotel');
+// export default new HotelRepository('hotel');

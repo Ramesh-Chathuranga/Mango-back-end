@@ -4,24 +4,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const roomRepository_1 = __importDefault(require("../repository/roomRepository"));
+//import RoomRepository from "../repository/roomRepository";
 const roomDispatcher = express_1.default.Router();
-roomDispatcher.route("")
-    .get(async (req, res) => {
+roomDispatcher.route("").get(async (req, res) => {
     try {
-        const data = await roomRepository_1.default.getRoomList();
-        res.status(200).json(data);
+        // const data = await RoomRepository.getRoomList();
+        res.status(200).json("data");
     }
     catch (error) {
         res.status(500).send(error);
     }
 });
-roomDispatcher.route("/:id")
+roomDispatcher
+    .route("/:id")
     .get(async (req, res) => {
     try {
         const id = req.params.id;
-        const data = await roomRepository_1.default.getRoom(id);
-        res.status(200).json(data);
+        // const data = await RoomRepository.getRoom(id);
+        res.status(200).json("data");
     }
     catch (error) {
         res.status(500).send(error);
