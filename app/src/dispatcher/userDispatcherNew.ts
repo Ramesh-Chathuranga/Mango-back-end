@@ -11,4 +11,13 @@ usersDispatcher.route("").get(async (req: Request, res: Response) => {
   }
 });
 
+usersDispatcher.route("/:type?").post(async (req: Request, res: Response) => {
+  try {
+    const body = req.body;
+    const data = await usersReop.getUsersListBySearchingValue(body);
+    res.status(200).json(data);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
 export default usersDispatcher;
